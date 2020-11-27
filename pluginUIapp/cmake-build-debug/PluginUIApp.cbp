@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="PluginUIApp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\RobWork\;CMake Files\..\..\..\RobWork\RobWork\;CMake Files\..\..\..\RobWork\RobWork\cmake\;CMake Files\..\..\..\RobWork\RobWorkStudio\;CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\;CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SamplePlugin">
+				<Option output="/home/soeren/Git/SDU/EiT/pluginUIapp/libs/Debug/libSamplePlugin.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBOOST_DISABLE_ASSERTS"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_OPENGL_LIB"/>
+					<Add directory="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/SamplePlugin_autogen/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWorkStudio/cmake/../src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWorkStudio/cmake/../ext/qtpropertybrowser/src"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/rwyaobi"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/qhull/src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/csgjs/src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/fcl/fcl/include"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/assimp/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtOpenGL"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 SamplePlugin"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SamplePlugin/fast">
+				<Option output="/home/soeren/Git/SDU/EiT/pluginUIapp/libs/Debug/libSamplePlugin.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBOOST_DISABLE_ASSERTS"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_OPENGL_LIB"/>
+					<Add directory="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/SamplePlugin_autogen/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWorkStudio/cmake/../src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWorkStudio/cmake/../ext/qtpropertybrowser/src"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/rwyaobi"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/rwpqp"/>
+					<Add directory="/usr/include/lua5.3"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/qhull/src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/csgjs/src"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/fcl/fcl/include"/>
+					<Add directory="/home/soeren/Git/RobWork/RobWork/cmake/../ext/assimp/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtOpenGL"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 SamplePlugin/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SamplePlugin_autogen">
+				<Option working_dir="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 SamplePlugin_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/SamplePlugin_autogen/UVLADIE3JM/qrc_resources.cpp">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/SamplePlugin_autogen/UVLADIE3JM/qrc_resources.cpp.rule">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/cmake-build-debug/SamplePlugin_autogen/mocs_compilation.cpp">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/src/SamplePlugin.cpp">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/src/SamplePlugin.hpp">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/src/resources.qrc">
+			<Option target="SamplePlugin"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWork/cmake/RobWorkBuildConfig_release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWork\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWork/cmake/RobWorkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWork\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWork/cmake/RobWorkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWork\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWork/cmake/RobWorkTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWork\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWork/cmake/gtestTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWork\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/RobWorkStudioBuildConfig_release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/RobWorkStudioConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/RobWorkStudioConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/RobWorkStudioMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/RobWorkStudioTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/Modules/FindQt5Core.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/Modules/FindQt5Gui.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/Modules/FindQt5OpenGL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/Modules/FindQt5Widgets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../RobWork/RobWorkStudio/cmake/Modules/Find_QT5_DIR.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\RobWork\RobWorkStudio\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5OpenGL/Qt5OpenGLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5OpenGL\"/>
+		</Unit>
+		<Unit filename="/home/soeren/Git/SDU/EiT/pluginUIapp/src/resources.qrc">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

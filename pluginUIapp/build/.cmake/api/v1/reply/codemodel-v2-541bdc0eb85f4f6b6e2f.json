@@ -1,0 +1,68 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "PluginUIApp",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SamplePlugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SamplePlugin-f6f17a60880dd1394b3d.json",
+					"name" : "SamplePlugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SamplePlugin_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SamplePlugin_autogen-5fefef03282840bdb007.json",
+					"name" : "SamplePlugin_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/soeren/Git/SDU/EiT/pluginUIapp/build",
+		"source" : "/home/soeren/Git/SDU/EiT/pluginUIapp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
