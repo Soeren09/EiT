@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'SamplePlugin.hpp'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -13,7 +13,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'SamplePlugin.hpp' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.9.7. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -48,7 +48,7 @@ QT_MOC_LITERAL(5, 68, 5) // "state"
 static const uint qt_meta_data_SamplePlugin[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        2,   14, // methods
@@ -72,7 +72,7 @@ static const uint qt_meta_data_SamplePlugin[] = {
 void SamplePlugin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<SamplePlugin *>(_o);
+        SamplePlugin *_t = static_cast<SamplePlugin *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->btnPressed(); break;
@@ -82,14 +82,10 @@ void SamplePlugin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject SamplePlugin::staticMetaObject = { {
-    &rws::RobWorkStudioPlugin::staticMetaObject,
-    qt_meta_stringdata_SamplePlugin.data,
-    qt_meta_data_SamplePlugin,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject SamplePlugin::staticMetaObject = {
+    { &rws::RobWorkStudioPlugin::staticMetaObject, qt_meta_stringdata_SamplePlugin.data,
+      qt_meta_data_SamplePlugin,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *SamplePlugin::metaObject() const
@@ -124,31 +120,93 @@ int SamplePlugin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     return _id;
 }
 
+QT_PLUGIN_METADATA_SECTION const uint qt_section_alignment_dummy = 42;
+
+#ifdef QT_NO_DEBUG
+
 QT_PLUGIN_METADATA_SECTION
-static constexpr unsigned char qt_pluginMetaData[] = {
-    'Q', 'T', 'M', 'E', 'T', 'A', 'D', 'A', 'T', 'A', ' ', '!',
-    // metadata version, Qt version, architectural requirements
-    0, QT_VERSION_MAJOR, QT_VERSION_MINOR, qPluginArchRequirements(),
-    0xbf, 
-    // "IID"
-    0x02,  0x78,  0x2a,  'd',  'k',  '.',  's',  'd', 
-    'u',  '.',  'm',  'i',  'p',  '.',  'R',  'o', 
-    'b',  'w',  'o',  'r',  'k',  '.',  'R',  'o', 
-    'b',  'W',  'o',  'r',  'k',  'S',  't',  'u', 
-    'd',  'i',  'o',  'P',  'l',  'u',  'g',  'i', 
-    'n',  '/',  '0',  '.',  '1', 
-    // "className"
-    0x03,  0x6c,  'S',  'a',  'm',  'p',  'l',  'e', 
-    'P',  'l',  'u',  'g',  'i',  'n', 
-    // "MetaData"
-    0x04,  0xa3,  0x6c,  'd',  'e',  'p',  'e',  'n', 
-    'd',  'e',  'n',  'c',  'i',  'e',  's',  0x80, 
-    0x64,  'n',  'a',  'm',  'e',  0x6b,  'p',  'l', 
-    'u',  'g',  'i',  'n',  'U',  'I',  'a',  'p', 
-    'p',  0x67,  'v',  'e',  'r',  's',  'i',  'o', 
-    'n',  0x65,  '1',  '.',  '0',  '.',  '0', 
-    0xff, 
+static const unsigned char qt_pluginMetaData[] = {
+    'Q', 'T', 'M', 'E', 'T', 'A', 'D', 'A', 'T', 'A', ' ', ' ',
+    'q',  'b',  'j',  's',  0x01, 0x00, 0x00, 0x00,
+    0x10, 0x01, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00,
+    0xfc, 0x00, 0x00, 0x00, 0x1b, 0x03, 0x00, 0x00,
+    0x03, 0x00, 'I',  'I',  'D',  0x00, 0x00, 0x00,
+    '*',  0x00, 'd',  'k',  '.',  's',  'd',  'u', 
+    '.',  'm',  'i',  'p',  '.',  'R',  'o',  'b', 
+    'w',  'o',  'r',  'k',  '.',  'R',  'o',  'b', 
+    'W',  'o',  'r',  'k',  'S',  't',  'u',  'd', 
+    'i',  'o',  'P',  'l',  'u',  'g',  'i',  'n', 
+    '/',  '0',  '.',  '1',  0x9b, 0x0a, 0x00, 0x00,
+    0x09, 0x00, 'c',  'l',  'a',  's',  's',  'N', 
+    'a',  'm',  'e',  0x00, 0x0c, 0x00, 'S',  'a', 
+    'm',  'p',  'l',  'e',  'P',  'l',  'u',  'g', 
+    'i',  'n',  0x00, 0x00, 0xfa, ' ',  0xa1, 0x00,
+    0x07, 0x00, 'v',  'e',  'r',  's',  'i',  'o', 
+    'n',  0x00, 0x00, 0x00, 0x11, 0x00, 0x00, 0x00,
+    0x05, 0x00, 'd',  'e',  'b',  'u',  'g',  0x00,
+    0x15, 0x12, 0x00, 0x00, 0x08, 0x00, 'M',  'e', 
+    't',  'a',  'D',  'a',  't',  'a',  0x00, 0x00,
+    'l',  0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00,
+    '`',  0x00, 0x00, 0x00, 0x1b, 0x03, 0x00, 0x00,
+    0x04, 0x00, 'n',  'a',  'm',  'e',  0x00, 0x00,
+    0x0b, 0x00, 'p',  'l',  'u',  'g',  'i',  'n', 
+    'U',  'I',  'a',  'p',  'p',  0x00, 0x00, 0x00,
+    0x1b, 0x07, 0x00, 0x00, 0x07, 0x00, 'v',  'e', 
+    'r',  's',  'i',  'o',  'n',  0x00, 0x00, 0x00,
+    0x05, 0x00, '1',  '.',  '0',  '.',  '0',  0x00,
+    0x94, 0x0a, 0x00, 0x00, 0x0c, 0x00, 'd',  'e', 
+    'p',  'e',  'n',  'd',  'e',  'n',  'c',  'i', 
+    'e',  's',  0x00, 0x00, 0x0c, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    '@',  0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00,
+    '(',  0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00,
+    0x80, 0x00, 0x00, 0x00, 'D',  0x00, 0x00, 0x00,
+    't',  0x00, 0x00, 0x00, 'd',  0x00, 0x00, 0x00
 };
+
+#else // QT_NO_DEBUG
+
+QT_PLUGIN_METADATA_SECTION
+static const unsigned char qt_pluginMetaData[] = {
+    'Q', 'T', 'M', 'E', 'T', 'A', 'D', 'A', 'T', 'A', ' ', ' ',
+    'q',  'b',  'j',  's',  0x01, 0x00, 0x00, 0x00,
+    0x10, 0x01, 0x00, 0x00, 0x0b, 0x00, 0x00, 0x00,
+    0xfc, 0x00, 0x00, 0x00, 0x1b, 0x03, 0x00, 0x00,
+    0x03, 0x00, 'I',  'I',  'D',  0x00, 0x00, 0x00,
+    '*',  0x00, 'd',  'k',  '.',  's',  'd',  'u', 
+    '.',  'm',  'i',  'p',  '.',  'R',  'o',  'b', 
+    'w',  'o',  'r',  'k',  '.',  'R',  'o',  'b', 
+    'W',  'o',  'r',  'k',  'S',  't',  'u',  'd', 
+    'i',  'o',  'P',  'l',  'u',  'g',  'i',  'n', 
+    '/',  '0',  '.',  '1',  0x95, 0x0a, 0x00, 0x00,
+    0x08, 0x00, 'M',  'e',  't',  'a',  'D',  'a', 
+    't',  'a',  0x00, 0x00, 'l',  0x00, 0x00, 0x00,
+    0x07, 0x00, 0x00, 0x00, '`',  0x00, 0x00, 0x00,
+    0x1b, 0x03, 0x00, 0x00, 0x04, 0x00, 'n',  'a', 
+    'm',  'e',  0x00, 0x00, 0x0b, 0x00, 'p',  'l', 
+    'u',  'g',  'i',  'n',  'U',  'I',  'a',  'p', 
+    'p',  0x00, 0x00, 0x00, 0x1b, 0x07, 0x00, 0x00,
+    0x07, 0x00, 'v',  'e',  'r',  's',  'i',  'o', 
+    'n',  0x00, 0x00, 0x00, 0x05, 0x00, '1',  '.', 
+    '0',  '.',  '0',  0x00, 0x94, 0x0a, 0x00, 0x00,
+    0x0c, 0x00, 'd',  'e',  'p',  'e',  'n',  'd', 
+    'e',  'n',  'c',  'i',  'e',  's',  0x00, 0x00,
+    0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, '@',  0x00, 0x00, 0x00,
+    0x0c, 0x00, 0x00, 0x00, '(',  0x00, 0x00, 0x00,
+    0x1b, 0x1a, 0x00, 0x00, 0x09, 0x00, 'c',  'l', 
+    'a',  's',  's',  'N',  'a',  'm',  'e',  0x00,
+    0x0c, 0x00, 'S',  'a',  'm',  'p',  'l',  'e', 
+    'P',  'l',  'u',  'g',  'i',  'n',  0x00, 0x00,
+    '1',  0x00, 0x00, 0x00, 0x05, 0x00, 'd',  'e', 
+    'b',  'u',  'g',  0x00, 0xfa, ' ',  0xa1, 0x00,
+    0x07, 0x00, 'v',  'e',  'r',  's',  'i',  'o', 
+    'n',  0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00,
+    'D',  0x00, 0x00, 0x00, 0xc0, 0x00, 0x00, 0x00,
+    0xe0, 0x00, 0x00, 0x00, 0xec, 0x00, 0x00, 0x00
+};
+#endif // QT_NO_DEBUG
+
 QT_MOC_EXPORT_PLUGIN(SamplePlugin, SamplePlugin)
 
 QT_WARNING_POP

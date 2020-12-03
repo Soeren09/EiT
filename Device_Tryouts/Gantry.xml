@@ -1,0 +1,53 @@
+<SerialDevice name="Gantry">
+ <Frame name="Base">
+  <RPY> 0 0 0 </RPY> <Pos> 0 0 0</Pos> 
+ </Frame>
+
+<Frame name="BaseMov" type="Movable">
+	<Transform>
+		1 0 0 0
+		0 1 0 0
+		0 0 1 0
+	</Transform>
+</Frame>
+ 
+<Joint name="Joint0" type="Prismatic" >
+	<Pos>-0.007 0.125 0.764</Pos>
+	<RPY>0 -90 0</RPY>
+</Joint>
+
+<Frame name="DH0" type="Movable" />
+ 
+<Joint name="Joint1" type="Prismatic">
+	<Pos>0 0 0.0</Pos>
+	<RPY>0 0 -90</RPY>
+</Joint>
+
+<Frame name="DH1" refframe="Joint1" type="Movable" />
+
+ <PosLimit refjoint="Joint0" min="-2.6" max="2.6" />
+ <PosLimit refjoint="Joint1" min="0" max="1.9" />
+
+ <VelLimit refjoint="Joint0" max="1" />
+ <VelLimit refjoint="Joint1" max="1" />
+
+ <AccLimit refjoint="Joint0" max="1" />
+ <AccLimit refjoint="Joint1" max="1" />
+
+
+ <!--<Drawable name="Joint0Geo" refframe="Joint0">
+  	<RPY> 180 90 0</RPY> <Pos> 0 0 0.003</Pos>
+  	<Polytope file="geometry/joint0" />
+ </Drawable> -->
+
+ <Drawable name="Joint1Geo" refframe="Joint1">
+	<RPY> 0 90 0 </RPY> <Pos> 0.00 0 0</Pos>
+  	<Polytope file="components/gantry_extruder" />
+ </Drawable>
+
+ <!-- <CollisionSetup file="CollisionSetup.prox.xml" />  -->
+<Q name="Home">0 0</Q>
+</SerialDevice>
+
+
+

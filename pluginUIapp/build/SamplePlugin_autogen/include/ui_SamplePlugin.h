@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SamplePlugin.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.9.7
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,12 @@
 #define UI_SAMPLEPLUGIN_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -36,21 +39,21 @@ public:
     void setupUi(QDockWidget *SamplePlugin)
     {
         if (SamplePlugin->objectName().isEmpty())
-            SamplePlugin->setObjectName(QString::fromUtf8("SamplePlugin"));
+            SamplePlugin->setObjectName(QStringLiteral("SamplePlugin"));
         SamplePlugin->resize(476, 479);
         dockWidgetContents = new QWidget();
-        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
+        dockWidgetContents->setObjectName(QStringLiteral("dockWidgetContents"));
         verticalLayout_2 = new QVBoxLayout(dockWidgetContents);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         _getGantry = new QPushButton(dockWidgetContents);
-        _getGantry->setObjectName(QString::fromUtf8("_getGantry"));
+        _getGantry->setObjectName(QStringLiteral("_getGantry"));
 
         horizontalLayout->addWidget(_getGantry);
 
         _getUR = new QPushButton(dockWidgetContents);
-        _getUR->setObjectName(QString::fromUtf8("_getUR"));
+        _getUR->setObjectName(QStringLiteral("_getUR"));
 
         horizontalLayout->addWidget(_getUR);
 
@@ -58,12 +61,12 @@ public:
         verticalLayout_2->addLayout(horizontalLayout);
 
         _calculateTraj = new QPushButton(dockWidgetContents);
-        _calculateTraj->setObjectName(QString::fromUtf8("_calculateTraj"));
+        _calculateTraj->setObjectName(QStringLiteral("_calculateTraj"));
 
         verticalLayout_2->addWidget(_calculateTraj);
 
         _executeTraj = new QPushButton(dockWidgetContents);
-        _executeTraj->setObjectName(QString::fromUtf8("_executeTraj"));
+        _executeTraj->setObjectName(QStringLiteral("_executeTraj"));
 
         verticalLayout_2->addWidget(_executeTraj);
 
@@ -72,7 +75,7 @@ public:
         verticalLayout_2->addItem(verticalSpacer);
 
         _reset = new QPushButton(dockWidgetContents);
-        _reset->setObjectName(QString::fromUtf8("_reset"));
+        _reset->setObjectName(QStringLiteral("_reset"));
 
         verticalLayout_2->addWidget(_reset);
 
@@ -85,12 +88,12 @@ public:
 
     void retranslateUi(QDockWidget *SamplePlugin)
     {
-        SamplePlugin->setWindowTitle(QApplication::translate("SamplePlugin", "DockWidget", nullptr));
-        _getGantry->setText(QApplication::translate("SamplePlugin", "Get Gantry", nullptr));
-        _getUR->setText(QApplication::translate("SamplePlugin", "Get UR", nullptr));
-        _calculateTraj->setText(QApplication::translate("SamplePlugin", "Calculate Trajectory", nullptr));
-        _executeTraj->setText(QApplication::translate("SamplePlugin", "Execute Trajectory", nullptr));
-        _reset->setText(QApplication::translate("SamplePlugin", "Reset", nullptr));
+        SamplePlugin->setWindowTitle(QApplication::translate("SamplePlugin", "DockWidget", Q_NULLPTR));
+        _getGantry->setText(QApplication::translate("SamplePlugin", "Get Gantry", Q_NULLPTR));
+        _getUR->setText(QApplication::translate("SamplePlugin", "Get UR", Q_NULLPTR));
+        _calculateTraj->setText(QApplication::translate("SamplePlugin", "Calculate Trajectory", Q_NULLPTR));
+        _executeTraj->setText(QApplication::translate("SamplePlugin", "Execute Trajectory", Q_NULLPTR));
+        _reset->setText(QApplication::translate("SamplePlugin", "Reset", Q_NULLPTR));
     } // retranslateUi
 
 };

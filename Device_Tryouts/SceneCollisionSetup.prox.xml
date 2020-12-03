@@ -1,0 +1,12 @@
+<CollisionSetup>
+  <Exclude>
+    <FramePair first="Gantry" second="JointRail"/>
+	<!--<FramePair first="Joint0" second="JointRail"/>
+	<FramePair first="JointRail" second="JointChassis"/>
+	<FramePair first="JointChassis" second="JointMagazine"/> 
+	<FramePair first="JointChassis" second="JointArm1"/> 
+	<FramePair first="JointArm1" second="JointArm2"/>
+	<FramePair first="Joint3" second="Joint4"/>
+	<FramePair first="Joint4" second="Joint5"/> -->
+  </Exclude>
+</CollisionSetup>

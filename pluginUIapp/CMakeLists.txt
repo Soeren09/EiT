@@ -12,8 +12,8 @@ if(DEFINED ENV{RW_ROOT} AND DEFINED ENV{RWS_ROOT})
   file(TO_CMAKE_PATH "$ENV{RW_ROOT}" RW_ROOT)
   file(TO_CMAKE_PATH "$ENV{RWS_ROOT}" RWSTUDIO_ROOT)
 else()
-  set(RW_ROOT "${ROOT}/../../../RobWork")
-  set(RWSTUDIO_ROOT "${ROOT}/../../../RobWorkStudio")
+  set(RW_ROOT "${ROOT}/../../RobWork/RobWork/")
+  set(RWSTUDIO_ROOT "${ROOT}/../../RobWork/RobWorkStudio/")
 endif()
 
 # If not the -DCMAKE_BUILD_TYPE option is given when running CMake, use Release as default.
