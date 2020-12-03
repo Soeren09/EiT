@@ -1,0 +1,133 @@
+
+<SerialDevice name="Stompa">
+
+ <Frame name="Base">
+  <RPY> 0 0 0 </RPY> <Pos> 0 0 0</Pos> 
+ </Frame>
+
+<Frame name="BaseMov" type="Movable">
+	<Transform>
+		1 0 0 0
+		0 1 0 0
+		0 0 1 0
+	</Transform>
+</Frame>
+ 
+
+ <!-- Extruder -->
+<Joint name="Joint0" type="Prismatic" >
+	<!-- <Pos>-0.007 0.125 0.764</Pos> --> 
+	<Pos>-0.00 0.0 0.0</Pos>
+	<RPY>0 -90 0</RPY>
+</Joint>
+
+ 
+<Joint name="Joint1" type="Prismatic">
+	<Pos>0 0 0.0</Pos>
+	<RPY>0 0 -90</RPY>
+</Joint>
+
+<!-- Stompa -->
+ 
+<Joint name="JointRail" type="Prismatic">
+	<Pos>0.300 0.0 0</Pos>
+	<RPY>90 0 0</RPY>
+</Joint>
+
+<Joint name="JointWheels" type="Revolute">
+	<Pos>-0.00 -0.00 0.0</Pos>
+	<RPY>0 0 90</RPY>
+</Joint>
+
+<Joint name="JointChassis" type="Revolute">
+	<Pos>0 0.213 -0.0245</Pos>
+	<RPY>0 180 0</RPY>
+</Joint>
+
+<Joint name="JointMagazine" type="Prismatic">
+	<Pos>0 0 0</Pos>
+	<RPY>0 180 0</RPY>
+</Joint>
+
+<Joint name="JointArm1" type="Revolute">
+	<Pos>0 0.0135 -0.162</Pos>
+	<RPY>0 90 0</RPY>
+</Joint>
+
+<Joint name="JointArm2" type="Revolute">
+	<Pos>0.06 0 0</Pos>
+	<RPY>0 0 0</RPY>
+</Joint>
+
+
+ <PosLimit refjoint="Joint0" min="-2.6" max="2.6" />
+ <PosLimit refjoint="Joint1" min="0" max="1.9" />
+ <PosLimit refjoint="JointRail" min="0" max="0" />
+ <PosLimit refjoint="JointWheels" min="-180" max="180" />
+ <PosLimit refjoint="JointChassis" min="-180" max="180" />
+ <PosLimit refjoint="JointMagazine" min="00" max="00" />
+ <PosLimit refjoint="JointArm1" min="-180" max="180" />
+ <PosLimit refjoint="JointArm2" min="-180" max="180" />
+
+ <VelLimit refjoint="Joint0" max="1" />
+ <VelLimit refjoint="Joint1" max="1" />
+ <VelLimit refjoint="JointRail" max="1" />
+ <VelLimit refjoint="JointWheels" max="1" />
+ <VelLimit refjoint="JointChassis" max="1" />
+ <VelLimit refjoint="JointMagazine" max="1" />
+ <VelLimit refjoint="JointArm1" max="1" />
+ <VelLimit refjoint="JointArm2" max="1" />
+
+
+ <AccLimit refjoint="Joint0" max="1" />
+ <AccLimit refjoint="Joint1" max="1" />
+ <AccLimit refjoint="JointRail" max="1" />
+ <AccLimit refjoint="JointWheels" max="1" />
+ <AccLimit refjoint="JointChassis" max="1" />
+ <AccLimit refjoint="JointMagazine" max="1" />
+ <AccLimit refjoint="JointArm1" max="1" />
+ <AccLimit refjoint="JointArm2" max="1" />
+
+
+
+  <Drawable name="Joint1Geo" refframe="Joint1">
+	<RPY> 0 90 0 </RPY> <Pos> 0.764 -0.007  0.125 </Pos>
+  	<Polytope file="components/gantry_extruder" />
+ </Drawable>
+
+ <Drawable name="JointRailGeo" refframe="JointRail">
+  	<RPY> 0 0 0</RPY> <Pos> 0 -0 0</Pos>
+  	<Polytope file="components/stompa_rail" />
+ </Drawable> 
+
+ <Drawable name="JointWheelsGeo" refframe="JointWheels">
+	<RPY> 00 90 00 </RPY> <Pos> -0.006 0.15 -0.038</Pos>  
+  	<Polytope file="components/stompa_wheels" />
+ </Drawable>
+
+  <Drawable name="JointChassisGeo" refframe="JointChassis">
+	<RPY> 0 0 180 </RPY> <Pos> -0.035 0.215 0.189</Pos>   
+  	<Polytope file="components/stompa_chassis" />
+ </Drawable>
+
+ <Drawable name="JointMagazineGeo" refframe="JointMagazine">
+	<RPY> -90 0 90 </RPY> <Pos> -0.05 0.134 -0.006</Pos>   
+  	<Polytope file="components/stompa_magazine" />
+ </Drawable>
+
+ <Drawable name="JointArm1Geo" refframe="JointArm1">
+	<RPY> 0 0 0 </RPY> <Pos> -0. 0 0.00</Pos>   
+  	<Polytope file="components/stompa_arm_1" />
+ </Drawable>
+
+ <Drawable name="JointArm2Geo" refframe="JointArm2">
+	<RPY> 0 90 0 </RPY> <Pos> 0.0375 0.0452 -0</Pos>   
+  	<Polytope file="components/stompa_arm_2" />
+ </Drawable>
+
+
+
+ <CollisionSetup file="CollisionSetup.prox.xml" /> 
+
+<Q name="Home">0 0 0 0 0 0 0 -30</Q>
+</SerialDevice>

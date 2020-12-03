@@ -16,14 +16,12 @@
 	<RPY>0 -90 0</RPY>
 </Joint>
 
-<Frame name="DH0" type="Movable" />
  
 <Joint name="Joint1" type="Prismatic">
 	<Pos>0 0 0.0</Pos>
 	<RPY>0 0 -90</RPY>
 </Joint>
 
-<Frame name="DH1" refframe="Joint1" type="Movable" />
 
  <PosLimit refjoint="Joint0" min="-2.6" max="2.6" />
  <PosLimit refjoint="Joint1" min="0" max="1.9" />
