@@ -72,21 +72,21 @@
  <VelLimit refjoint="Joint0" max="1" />
  <VelLimit refjoint="Joint1" max="1" />
  <VelLimit refjoint="JointRail" max="1" />
- <VelLimit refjoint="JointWheels" max="1" />
- <VelLimit refjoint="JointChassis" max="1" />
+ <VelLimit refjoint="JointWheels" max="100" />
+ <VelLimit refjoint="JointChassis" max="100" />
  <VelLimit refjoint="JointMagazine" max="1" />
- <VelLimit refjoint="JointArm1" max="1" />
- <VelLimit refjoint="JointArm2" max="1" />
+ <VelLimit refjoint="JointArm1" max="100" />
+ <VelLimit refjoint="JointArm2" max="100" />
 
 
  <AccLimit refjoint="Joint0" max="1" />
  <AccLimit refjoint="Joint1" max="1" />
  <AccLimit refjoint="JointRail" max="1" />
- <AccLimit refjoint="JointWheels" max="1" />
- <AccLimit refjoint="JointChassis" max="1" />
+ <AccLimit refjoint="JointWheels" max="10" />
+ <AccLimit refjoint="JointChassis" max="10" />
  <AccLimit refjoint="JointMagazine" max="1" />
- <AccLimit refjoint="JointArm1" max="1" />
- <AccLimit refjoint="JointArm2" max="1" />
+ <AccLimit refjoint="JointArm1" max="10" />
+ <AccLimit refjoint="JointArm2" max="10" />
 
 
 

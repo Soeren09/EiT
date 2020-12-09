@@ -10,6 +10,9 @@
 
 #include <RobWorkStudio.hpp>
 #include <rw/rw.hpp>
+#include <rw/models/Models.hpp>
+#include <rw/loaders/path/PathLoader.hpp>
+
 //#include <rwlibs/opengl/RenderImage.hpp>
 //#include <rwlibs/simulation/GLFrameGrabber.hpp>
 //#include <rwlibs/simulation/GLFrameGrabber25D.hpp>
@@ -23,7 +26,6 @@
 
 #include <boost/bind.hpp>
 
-
 #include "URSimulation.h"
 
 #include "AbsolutePaths.h"
@@ -31,6 +33,7 @@
 using rw::kinematics::State;
 using rw::models::WorkCell;
 using rws::RobWorkStudioPlugin;
+
 
 SamplePlugin::SamplePlugin():
     RobWorkStudioPlugin("SamplePluginUI", QIcon(":/pa_icon.png"))
@@ -78,18 +81,44 @@ void SamplePlugin::open(rw::models::WorkCell *workcell) {
 
 void SamplePlugin::close() {
 }
-
-void SamplePlugin::btnPressed() {
-    QObject *obj = sender();
-    if (obj == _calculateTraj) {}
-    else if (obj == _executeTraj) {
-        log().info() << "Starting Trajectory." << "\n";
-        std::cout << "Starting Trajectory." << std::endl;
+void SamplePlugin::runPath(bool setFinalPos) {
         _wc  = getRobWorkStudio()->getWorkCell();
         _state = _wc->getDefaultState();
         _state_default = _state;
-        
+        _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
 
+        // Create intermediate poses
+        rw::math::Q intermediate1(8, 0, 0, 0, 0, 0, 0, 0, 0);
+        rw::math::Q intermediate2(8, 1, 1, 0, 0, 0, 0, 0, 0.1);
+        rw::math::Q intermediate3(8, 0.5, 0.5, 0, 3.1, 0, 0, 0.5, 0.3);
+        rw::math::Q intermediate4(8, -0.5, 1.5, 0, 1.4, 0.3, 0, -0.5, -0.3);
+
+        std::vector<rw::math::Q> qs;
+
+        // Push intermediate poses to qs vector
+        qs.push_back(intermediate1);
+        qs.push_back(intermediate2);
+        qs.push_back(intermediate3);
+        qs.push_back(intermediate4);
+
+        // Calculate the full path
+        createPTPPath(qs,0.01);
+
+        // Record the path to a playback file - apply final position based on button pressed
+        executePath(0.01, setFinalPos);
+}
+
+void SamplePlugin::btnPressed() {
+    QObject *obj = sender();
+    if (obj == _calculateTraj) {
+        log().info() << "Recording Trajectory." << "\n";
+        std::cout << "Recording Trajectory." << std::endl;
+        runPath(false);
+    }
+    else if (obj == _executeTraj) {
+        log().info() << "Recording Trajectory and apply final pos." << "\n";
+        std::cout << "Recording Trajectory and apply final pos." << std::endl;
+        runPath(true);
     }
     else if (obj == _reset){}
     else if (obj == _getUR){
@@ -204,7 +233,7 @@ rw::math::Q SamplePlugin::getQ(rw::math::Transform3D<double> target, rw::math::Q
 
     int bestI = -1;
     double bestDist = std::numeric_limits<double>::max();
-    for (int i = 0; i < solutions.size(); i++) {
+    for (unsigned i = 0; i < solutions.size(); i++) {
         _robot->setQ(solutions[i], _state);
         if (checkCollisions(_robot, _state, *_detector, solutions[i])) {//collsiion checking
             if (qclose.size() < 3) {
@@ -237,7 +266,7 @@ rw::math::Transform3D<double> SamplePlugin::getPlanningTransform3D(rw::kinematic
 
 void SamplePlugin::createPTPPath(std::vector<rw::math::Q> qs, double dt) {
     rw::trajectory::InterpolatorTrajectory<rw::math::Q>::Ptr trajectoryPTP = (new rw::trajectory::InterpolatorTrajectory<rw::math::Q>());
-    for (int i = 1; i < qs.size(); i++) {
+    for (unsigned i = 1; i < qs.size(); i++) {
         std::cout << "Loaded trajectory and planning object with limits: " << _robot->getVelocityLimits()
                   << _robot->getAccelerationLimits() << std::endl;
         rw::trajectory::RampInterpolator<rw::math::Q>::Ptr line =(
@@ -252,16 +281,25 @@ void SamplePlugin::createPTPPath(std::vector<rw::math::Q> qs, double dt) {
     _path.clear();
     std::vector<rw::math::Q> qvec = trajectoryPTP->getPath(dt);
     _path.assign(qvec.begin(), qvec.end());
-    //_path_type = PTP;
 }
 
-void SamplePlugin::executePath(double dt) {
+void SamplePlugin::executePath(double dt, bool setFinal) {
     std::cout << "Executing PTP path with " << _path.size() << " steps in " << dt * _path.size() << " seconds"
               << std::endl;
-    //_step = 0;
+    // Map the configurations to a sequence of states.
+    const std::vector<State> states = rw::models::Models::getStatePath(*_robot , _path, _state);
 
-    _timer->start(dt * 1000.0);
+    // Write the sequence of states to a file.
+    rw::loaders::PathLoader::storeVelocityTimedStatePath(
+        *_wc, states, PlaybackFilePath+"plannedPath.rwplay");
 
+    // Set the final state of the robot.
+    if (setFinal){
+        _robot->setQ(_path[_path.size()-1],_state);
+        getRobWorkStudio()->setState(_state);
+    }
+    std::cout << "Done " << std::endl;
+    
 }
 
 

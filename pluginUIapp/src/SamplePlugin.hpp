@@ -47,8 +47,9 @@ private:
     rw::math::Transform3D<double> getPlanningTransform3D(rw::kinematics::Frame* frame);
 
     // Robotics / planning
+    void runPath(bool setFinalPos);
     void createPTPPath(std::vector<rw::math::Q> qs, double dt);
-    void executePath(double dt);
+    void executePath(double dt, bool setFinal);
 
     rw::trajectory::QPath _path;
     rw::invkin::ClosedFormIKSolverUR::Ptr _closedFormSolver;
@@ -58,6 +59,7 @@ private:
     // Scene and device
     rw::models::WorkCell::Ptr _wc;
     rw::models::SerialDevice::Ptr _robot;
+    rw::models::Device::Ptr _gantry;
     rw::models::TreeDevice::Ptr _gripper;
 
     // frames and transforms

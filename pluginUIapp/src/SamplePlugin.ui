@@ -36,14 +36,14 @@
     <item>
      <widget class="QPushButton" name="_calculateTraj">
       <property name="text">
-       <string>Calculate Trajectory</string>
+       <string>Record Trajectory</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="_executeTraj">
       <property name="text">
-       <string>Execute Trajectory</string>
+       <string>Record and Apply Trajectory</string>
       </property>
      </widget>
     </item>

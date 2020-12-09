@@ -91,8 +91,8 @@ public:
         SamplePlugin->setWindowTitle(QApplication::translate("SamplePlugin", "DockWidget", Q_NULLPTR));
         _getGantry->setText(QApplication::translate("SamplePlugin", "Get Gantry", Q_NULLPTR));
         _getUR->setText(QApplication::translate("SamplePlugin", "Get UR", Q_NULLPTR));
-        _calculateTraj->setText(QApplication::translate("SamplePlugin", "Calculate Trajectory", Q_NULLPTR));
-        _executeTraj->setText(QApplication::translate("SamplePlugin", "Execute Trajectory", Q_NULLPTR));
+        _calculateTraj->setText(QApplication::translate("SamplePlugin", "Record Trajectory", Q_NULLPTR));
+        _executeTraj->setText(QApplication::translate("SamplePlugin", "Record and Apply Trajectory", Q_NULLPTR));
         _reset->setText(QApplication::translate("SamplePlugin", "Reset", Q_NULLPTR));
     } // retranslateUi
 
