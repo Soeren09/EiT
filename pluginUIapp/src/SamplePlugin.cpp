@@ -26,6 +26,8 @@
 
 #include "URSimulation.h"
 
+#include "AbsolutePaths.h"
+
 using rw::kinematics::State;
 using rw::models::WorkCell;
 using rws::RobWorkStudioPlugin;
@@ -97,7 +99,7 @@ void SamplePlugin::btnPressed() {
 
 void SamplePlugin::getUR(){
         // Load the workcell
-    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/maltenj/EiT/Workcell/Scene.wc.xml");
+    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load(URFilePath);
     if (wc.isNull()) {
         std::cout << "WorkCell could not be loaded." << std::endl;
     }
@@ -149,7 +151,7 @@ void SamplePlugin::getUR(){
 void SamplePlugin::getGantry() {
     std::cout << "Get Gantry" << std::endl;
     // Load the workcell
-    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/maltenj/EiT/Workcell/wsg50/wsg50.xml");
+    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load(GantryFilePath);
     //rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/soeren/Git/SDU/EiT/Workcell/Scene.wc.xml");
     if (wc.isNull()) {
         std::cout << "WorkCell could not be loaded." << std::endl;
