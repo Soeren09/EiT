@@ -61,13 +61,13 @@
 
 
  <PosLimit refjoint="Joint0" min="-2.6" max="2.6" />
- <PosLimit refjoint="Joint1" min="0" max="1.9" />
+ <PosLimit refjoint="Joint1" min="-1.9" max="1.9" />
  <PosLimit refjoint="JointRail" min="0" max="0" />
- <PosLimit refjoint="JointWheels" min="-180" max="180" />
- <PosLimit refjoint="JointChassis" min="-180" max="180" />
+ <PosLimit refjoint="JointWheels" min="-270" max="270" />
+ <PosLimit refjoint="JointChassis" min="-34.4" max="34.4" />
  <PosLimit refjoint="JointMagazine" min="00" max="00" />
- <PosLimit refjoint="JointArm1" min="-180" max="180" />
- <PosLimit refjoint="JointArm2" min="-180" max="180" />
+ <PosLimit refjoint="JointArm1" min="-131.78" max="114.59" />
+ <PosLimit refjoint="JointArm2" min="-89.5" max="180" />
 
  <VelLimit refjoint="Joint0" max="1" />
  <VelLimit refjoint="Joint1" max="1" />

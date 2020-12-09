@@ -80,7 +80,15 @@ void SamplePlugin::close() {
 void SamplePlugin::btnPressed() {
     QObject *obj = sender();
     if (obj == _calculateTraj) {}
-    else if (obj == _executeTraj) {}
+    else if (obj == _executeTraj) {
+        log().info() << "Starting Trajectory." << "\n";
+        std::cout << "Starting Trajectory." << std::endl;
+        _wc  = getRobWorkStudio()->getWorkCell();
+        _state = _wc->getDefaultState();
+        _state_default = _state;
+        
+
+    }
     else if (obj == _reset){}
     else if (obj == _getUR){
         log().info() << "Getting the UR workcell:" << "\n";
@@ -96,8 +104,8 @@ void SamplePlugin::btnPressed() {
 }
 
 void SamplePlugin::getUR(){
-        // Load the workcell
-    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/maltenj/EiT/Workcell/Scene.wc.xml");
+        // Load the workcell   ("/home/alexander/Eit/Practical/EiT/Workcell/Scene.wc.xml")
+    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("../../../../Eit/Practical/EiT/Workcell/Scene.wc.xml");
     if (wc.isNull()) {
         std::cout << "WorkCell could not be loaded." << std::endl;
     }
@@ -149,7 +157,7 @@ void SamplePlugin::getUR(){
 void SamplePlugin::getGantry() {
     std::cout << "Get Gantry" << std::endl;
     // Load the workcell
-    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/maltenj/EiT/Workcell/wsg50/wsg50.xml");
+    rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("../../../../Eit/Practical/EiT/Device_Tryouts/Total.xml");
     //rw::models::WorkCell::Ptr wc = rw::loaders::WorkCellLoader::Factory::load("/home/soeren/Git/SDU/EiT/Workcell/Scene.wc.xml");
     if (wc.isNull()) {
         std::cout << "WorkCell could not be loaded." << std::endl;
