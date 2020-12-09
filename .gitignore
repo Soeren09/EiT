@@ -9,5 +9,6 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+pluginUIapp/src/AbsolutePaths.h
 /pluginUIapp/src/AbsolutePaths.h
 
