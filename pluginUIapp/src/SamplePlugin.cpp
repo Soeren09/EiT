@@ -154,6 +154,7 @@ void SamplePlugin::invCalcNew() {
     _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
     //get desired 
       // The variable to solve for with its initial value.
+    google::InitGoogleLogging(GoogleLogPath);
   double initial_x = 5.0;
   double x = initial_x;
 

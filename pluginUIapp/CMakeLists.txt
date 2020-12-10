@@ -68,6 +68,8 @@ set(SrcFiles
 
 # The shared library to build:
 add_library(SamplePlugin MODULE ${SrcFiles})
+
+
 #target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES})
 #target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} )
 target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES} ${CERES_LIB})
