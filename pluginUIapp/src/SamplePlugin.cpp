@@ -108,6 +108,32 @@ void SamplePlugin::runPath(bool setFinalPos) {
         executePath(0.01, setFinalPos);
 }
 
+void SamplePlugin::invCalc() {
+        _wc  = getRobWorkStudio()->getWorkCell();
+        _state = _wc->getDefaultState();
+        _state_default = _state;
+        _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
+        rw::invkin::JacobianIKSolver test(_robot, _state);
+
+        // Eigen::VectorXd we(6);
+        // we[0] = 1.0;
+        // we[1] = 1.0;
+        // we[2] = 1.0;
+        // we[3] = 1.0;
+        // we[4] = 0.0;
+        // we[5] = 1.0;
+        // test.setWeightVector(we);
+
+        rw::math::Q output;
+        std::vector<rw::math::Q> result;
+        rw::math::Transform3D<> pose(rw::math::Vector3D<>(0,0,0),rw::math::RPY<>(1.57079632679,0,1.57079632679));
+        result = test.solve(pose, _state);
+        std::cout << "Der er: " << result.size() << " resultater." << std::endl;
+        _robot->setQ(result[0],_state);
+        getRobWorkStudio()->setState(_state);
+
+}
+
 void SamplePlugin::btnPressed() {
     QObject *obj = sender();
     if (obj == _calculateTraj) {
@@ -118,7 +144,9 @@ void SamplePlugin::btnPressed() {
     else if (obj == _executeTraj) {
         log().info() << "Recording Trajectory and apply final pos." << "\n";
         std::cout << "Recording Trajectory and apply final pos." << std::endl;
-        runPath(true);
+        //runPath(true);
+        invCalc();
+        
     }
     else if (obj == _reset){}
     else if (obj == _getUR){

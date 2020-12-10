@@ -48,8 +48,11 @@ private:
 
     // Robotics / planning
     void runPath(bool setFinalPos);
+    void invCalc();
     void createPTPPath(std::vector<rw::math::Q> qs, double dt);
     void executePath(double dt, bool setFinal);
+
+    rw::invkin::IKMetaSolver::Ptr _IKSolver;
 
     rw::trajectory::QPath _path;
     rw::invkin::ClosedFormIKSolverUR::Ptr _closedFormSolver;
