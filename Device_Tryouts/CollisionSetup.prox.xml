@@ -1,14 +1,14 @@
 <CollisionSetup>
   <Exclude>
-	<FramePair first="Joint1" second="JointRail"/>
-    <FramePair first="JointRail" second="JointWheels"/>
+	<FramePair first="Joint1" second="FrameRail"/>
+    <FramePair first="FrameRail" second="JointWheels"/>
 	<FramePair first="JointWheels" second="JointChassis"/>
-	<FramePair first="JointChassis" second="JointMagazine"/> 
+	<FramePair first="JointChassis" second="FrameMagazine"/> 
 	<FramePair first="JointChassis" second="JointArm1"/> 
 	<FramePair first="JointArm1" second="JointArm2"/>
 	<FramePair first="JointArm2" second="Finger1"/>
 	<FramePair first="JointArm2" second="Finger2"/>
-	<!--<FramePair first="Joint3" second="Joint4"/>
-	<FramePair first="Joint4" second="Joint5"/> -->
+	<FramePair first="Finger1" second="Finger2"/>
+	<!--<FramePair first="Joint4" second="Joint5"/> -->
   </Exclude>
 </CollisionSetup>
