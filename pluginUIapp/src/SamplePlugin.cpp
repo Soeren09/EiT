@@ -88,10 +88,10 @@ void SamplePlugin::runPath(bool setFinalPos) {
         _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
 
         // Create intermediate poses
-        rw::math::Q intermediate1(8, 0, 0, 0, 0, 0, 0, 0, 0);
-        rw::math::Q intermediate2(8, 1, 1, 0, 0, 0, 0, 0, 0.1);
-        rw::math::Q intermediate3(8, 0.5, 0.5, 0, 3.1, 0, 0, 0.5, 0.3);
-        rw::math::Q intermediate4(8, -0.5, 1.5, 0, 1.4, 0.3, 0, -0.5, -0.3);
+        rw::math::Q intermediate1(8, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        rw::math::Q intermediate2(8, 1, 1, 0, 0, 0, 0, 0, 0.1, 0);
+        rw::math::Q intermediate3(8, 0.5, 0.5, 0, 3.1, 0, 0, 0.5, 0.3, 0);
+        rw::math::Q intermediate4(8, -0.5, 1.5, 0, 1.4, 0.3, 0, -0.5, -0.3, 0);
 
         std::vector<rw::math::Q> qs;
 
@@ -111,20 +111,22 @@ void SamplePlugin::runPath(bool setFinalPos) {
 void SamplePlugin::invCalc() {
         _wc  = getRobWorkStudio()->getWorkCell();
         _state = _wc->getDefaultState();
-        _state_default = _state;
+
         _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
         rw::invkin::JacobianIKSolver test(_robot, _state);
 
-        // Eigen::VectorXd we(6);
-        // we[0] = 1.0;
-        // we[1] = 1.0;
+        // Eigen::VectorXd we(9);
+        // we[0] = 0.0;
+        // we[1] = 0.0;
         // we[2] = 1.0;
         // we[3] = 1.0;
-        // we[4] = 0.0;
+        // we[4] = 1.0;
         // we[5] = 1.0;
+        // we[6] = 1.0;
+        // we[7] = 1.0;
+        // we[8] = 1.0;
         // test.setWeightVector(we);
 
-        rw::math::Q output;
         std::vector<rw::math::Q> result;
         rw::math::Transform3D<> pose(rw::math::Vector3D<>(0,0,0),rw::math::RPY<>(1.57079632679,0,1.57079632679));
         result = test.solve(pose, _state);
