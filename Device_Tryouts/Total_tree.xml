@@ -148,10 +148,6 @@
   	<Polytope file="components/stompa_finger_corrected" />
  </Drawable>
 
-<Drawable name="Finger2Geo" refframe="Finger2">
-	<RPY> 0 0 0 </RPY> <Pos> 0 0. 0</Pos>   
-  	<Polytope file="components/stompa_finger_corrected" />
- </Drawable>
 
 
  <CollisionSetup file="CollisionSetup.prox.xml" /> 
