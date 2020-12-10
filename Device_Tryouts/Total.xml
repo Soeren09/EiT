@@ -1,5 +1,5 @@
 
-<SerialDevice name="Stompa">
+<TreeDevice name="Stompa">
 
  <Frame name="Base">
   <RPY> 0 0 0 </RPY> <Pos> 0 0 0</Pos> 
@@ -15,49 +15,65 @@
  
 
  <!-- Extruder -->
-<Joint name="Joint0" type="Prismatic" >
+<Joint name="Joint0" refframe="Base" type="Prismatic" >
 	<!-- <Pos>-0.007 0.125 0.764</Pos> --> 
 	<Pos>-0.00 0.0 0.0</Pos>
 	<RPY>0 -90 0</RPY>
 </Joint>
 
  
-<Joint name="Joint1" type="Prismatic">
+<Joint name="Joint1" refframe="Joint0" type="Prismatic">
 	<Pos>0 0 0.0</Pos>
 	<RPY>0 0 -90</RPY>
 </Joint>
 
 <!-- Stompa -->
  
-<Joint name="JointRail" type="Prismatic">
+<Joint name="JointRail" refframe="Joint1" type="Prismatic">
 	<Pos>0.300 0.0 0</Pos>
 	<RPY>90 0 0</RPY>
 </Joint>
 
-<Joint name="JointWheels" type="Revolute">
+<Joint name="JointWheels" refframe="JointRail" type="Revolute">
 	<Pos>-0.00 -0.00 0.0</Pos>
 	<RPY>0 0 90</RPY>
 </Joint>
 
-<Joint name="JointChassis" type="Revolute">
+<Joint name="JointChassis" refframe="JointWheels" type="Revolute">
 	<Pos>0 0.213 -0.0245</Pos>
 	<RPY>0 180 0</RPY>
 </Joint>
 
-<Joint name="JointMagazine" type="Prismatic">
+<Joint name="JointMagazine" refframe="JointChassis" type="Prismatic">
 	<Pos>0 0 0</Pos>
 	<RPY>0 180 0</RPY>
 </Joint>
 
-<Joint name="JointArm1" type="Revolute">
+<Joint name="JointArm1" refframe="JointMagazine" type="Revolute">
 	<Pos>0 0.0135 -0.162</Pos>
 	<RPY>0 90 0</RPY>
 </Joint>
 
-<Joint name="JointArm2" type="Revolute">
-	<Pos>0.06 0 0</Pos>
-	<RPY>0 0 0</RPY>
+<Joint name="JointArm2" refframe="JointArm1" type="Revolute">
+	<Pos>0.06 0.00 0</Pos>
+	<RPY>-90 0 0</RPY>
 </Joint>
+
+  <Joint name="Finger1" refframe="JointArm2" type="Prismatic">
+    <RPY>-90 90 3</RPY> <Pos>0.105 0 -0.007</Pos>
+  </Joint>
+
+  <!--LEFT FINGER TCP FRAME-->
+  <Frame name="TCPFinger1" refframe="Finger1" type="EndEffector">
+  </Frame>
+
+  <Joint name="Finger2" refframe="JointArm2" type="Prismatic">
+    <RPY>180 -90 90</RPY> <Pos>0.105 -0.005 -0.007</Pos>
+    <Depend on="Finger1" gain="1" offset="0" />
+  </Joint>
+
+  <!-- <Frame name="TCPFinger2" refframe="Finger2" type="EndEffector">
+  </Frame> -->
 
 
  <PosLimit refjoint="Joint0" min="-2.6" max="2.6" />
@@ -68,6 +84,8 @@
  <PosLimit refjoint="JointMagazine" min="00" max="00" />
  <PosLimit refjoint="JointArm1" min="-131.78" max="114.59" />
  <PosLimit refjoint="JointArm2" min="-89.5" max="180" />
+ <PosLimit refjoint="Finger1" min="-0.015" max="0.0025" />
+ <PosLimit refjoint="Finger2" min="-0.015" max="0.0025" />
 
  <VelLimit refjoint="Joint0" max="1" />
  <VelLimit refjoint="Joint1" max="1" />
@@ -121,13 +139,22 @@
  </Drawable>
 
  <Drawable name="JointArm2Geo" refframe="JointArm2">
-	<RPY> 0 90 0 </RPY> <Pos> 0.0375 0.0452 -0</Pos>   
-  	<Polytope file="components/stompa_arm_2" />
+	<RPY> 0 0 0 </RPY> <Pos> 0 0. 0</Pos>   
+  	<Polytope file="components/stompa_arm2_corrected" />
  </Drawable>
 
+ <Drawable name="Finger1Geo" refframe="Finger1">
+	<RPY> 0 0 0 </RPY> <Pos> 0 0. 0</Pos>   
+  	<Polytope file="components/stompa_finger_corrected" />
+ </Drawable>
+
+<Drawable name="Finger2Geo" refframe="Finger2">
+	<RPY> 0 0 0 </RPY> <Pos> 0 0. 0</Pos>   
+  	<Polytope file="components/stompa_finger_corrected" />
+ </Drawable>
 
 
  <CollisionSetup file="CollisionSetup.prox.xml" /> 
 
-<Q name="Home">0 0 0 0 0 0 0 -30</Q>
-</SerialDevice>
+<Q name="Home">0 0 0 0 0 0 0 -30 0</Q>
+</TreeDevice>
