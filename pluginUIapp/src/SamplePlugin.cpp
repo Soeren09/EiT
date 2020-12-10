@@ -25,6 +25,10 @@
 
 
 #include <boost/bind.hpp>
+#include <ceres/problem.h>
+#include <ceres/solver.h>
+#include <eigen3/Eigen/Core>
+#include <ceres/autodiff_cost_function.h>
 
 #include "URSimulation.h"
 
@@ -35,13 +39,6 @@ using rw::models::WorkCell;
 using rws::RobWorkStudioPlugin;
 
 
-struct CostFunctor {
-   template <typename T>
-   bool operator()(const T* const x, T* residual) const {
-     residual[0] = 10.0 - x[0];
-     return true;
-   }
-};
 
 SamplePlugin::SamplePlugin():
     RobWorkStudioPlugin("SamplePluginUI", QIcon(":/pa_icon.png"))
@@ -143,6 +140,13 @@ void SamplePlugin::invCalc() {
 }
 
 
+struct CostFunctor {
+   template <typename T>
+   bool operator()(const T* const x, T* residual) const {
+     residual[0] = 10.0 - x[0];
+     return true;
+   }
+};
 
 void SamplePlugin::invCalcNew() {
     _wc  = getRobWorkStudio()->getWorkCell();
@@ -154,19 +158,19 @@ void SamplePlugin::invCalcNew() {
   double x = initial_x;
 
   // Build the problem.
-//   Problem problem;
+   ceres::Problem problem;
 
   // Set up the only cost function (also known as residual). This uses
   // auto-differentiation to obtain the derivative (jacobian).
-  CostFunction* cost_function =
-      new AutoDiffCostFunction<CostFunctor, 1, 1>(new CostFunctor);
+  ceres::CostFunction* cost_function =
+      new ceres::AutoDiffCostFunction<CostFunctor, 1, 1>(new CostFunctor);
   problem.AddResidualBlock(cost_function, nullptr, &x);
 
   // Run the solver!
-  Solver::Options options;
+  ceres::Solver::Options options;
   options.linear_solver_type = ceres::DENSE_QR;
   options.minimizer_progress_to_stdout = true;
-  Solver::Summary summary;
+  ceres::Solver::Summary summary;
   Solve(options, &problem, &summary);
 
   std::cout << summary.BriefReport() << "\n";

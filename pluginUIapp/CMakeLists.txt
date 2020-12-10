@@ -1,8 +1,14 @@
 # Test CMake version
 cmake_minimum_required(VERSION 3.5)
 
+
 # The name of the project.
 project(PluginUIApp)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 
 # Used to resolve absolute path names
 set(ROOT ${CMAKE_CURRENT_SOURCE_DIR})
@@ -62,8 +68,11 @@ set(SrcFiles
 
 # The shared library to build:
 add_library(SamplePlugin MODULE ${SrcFiles})
-target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES})
-target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} )
+#target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES})
+#target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} )
+target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES} ${CERES_LIB})
+target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} ${CERES_INC} )
+
 
 if(CMAKE_VERSION VERSION_LESS 3.9)
     # Required in CMake < 3.9 to find generated ui_SamplePlugin.h file 
@@ -71,3 +80,5 @@ if(CMAKE_VERSION VERSION_LESS 3.9)
 endif()
 
 message("-- " ${PROJECT_NAME} " done!")
+
+
