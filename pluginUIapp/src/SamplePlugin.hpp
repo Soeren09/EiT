@@ -49,6 +49,7 @@ private:
     // Robotics / planning
     void runPath(bool setFinalPos);
     void invCalc();
+    void invCalcNew();
     void createPTPPath(std::vector<rw::math::Q> qs, double dt);
     void executePath(double dt, bool setFinal);
 

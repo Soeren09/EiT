@@ -35,6 +35,14 @@ using rw::models::WorkCell;
 using rws::RobWorkStudioPlugin;
 
 
+struct CostFunctor {
+   template <typename T>
+   bool operator()(const T* const x, T* residual) const {
+     residual[0] = 10.0 - x[0];
+     return true;
+   }
+};
+
 SamplePlugin::SamplePlugin():
     RobWorkStudioPlugin("SamplePluginUI", QIcon(":/pa_icon.png"))
 {
@@ -82,57 +90,88 @@ void SamplePlugin::open(rw::models::WorkCell *workcell) {
 void SamplePlugin::close() {
 }
 void SamplePlugin::runPath(bool setFinalPos) {
-        _wc  = getRobWorkStudio()->getWorkCell();
-        _state = _wc->getDefaultState();
-        _state_default = _state;
-        _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
+    _wc  = getRobWorkStudio()->getWorkCell();
+    _state = _wc->getDefaultState();
+    _state_default = _state;
+    _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
 
-        // Create intermediate poses
-        rw::math::Q intermediate1(8, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        rw::math::Q intermediate2(8, 1, 1, 0, 0, 0, 0, 0, 0.1, 0);
-        rw::math::Q intermediate3(8, 0.5, 0.5, 0, 3.1, 0, 0, 0.5, 0.3, 0);
-        rw::math::Q intermediate4(8, -0.5, 1.5, 0, 1.4, 0.3, 0, -0.5, -0.3, 0);
+    // Create intermediate poses
+    rw::math::Q intermediate1(8, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    rw::math::Q intermediate2(8, 1, 1, 0, 0, 0, 0, 0, 0.1, 0);
+    rw::math::Q intermediate3(8, 0.5, 0.5, 0, 3.1, 0, 0, 0.5, 0.3, 0);
+    rw::math::Q intermediate4(8, -0.5, 1.5, 0, 1.4, 0.3, 0, -0.5, -0.3, 0);
 
-        std::vector<rw::math::Q> qs;
+    std::vector<rw::math::Q> qs;
 
-        // Push intermediate poses to qs vector
-        qs.push_back(intermediate1);
-        qs.push_back(intermediate2);
-        qs.push_back(intermediate3);
-        qs.push_back(intermediate4);
+    // Push intermediate poses to qs vector
+    qs.push_back(intermediate1);
+    qs.push_back(intermediate2);
+    qs.push_back(intermediate3);
+    qs.push_back(intermediate4);
 
-        // Calculate the full path
-        createPTPPath(qs,0.01);
+    // Calculate the full path
+    createPTPPath(qs,0.01);
 
-        // Record the path to a playback file - apply final position based on button pressed
-        executePath(0.01, setFinalPos);
+    // Record the path to a playback file - apply final position based on button pressed
+    executePath(0.01, setFinalPos);
 }
 
 void SamplePlugin::invCalc() {
-        _wc  = getRobWorkStudio()->getWorkCell();
-        _state = _wc->getDefaultState();
+    _wc  = getRobWorkStudio()->getWorkCell();
+    _state = _wc->getDefaultState();
 
-        _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
-        rw::invkin::JacobianIKSolver test(_robot, _state);
+    _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
+    rw::invkin::JacobianIKSolver test(_robot, _state);
 
-        // Eigen::VectorXd we(9);
-        // we[0] = 0.0;
-        // we[1] = 0.0;
-        // we[2] = 1.0;
-        // we[3] = 1.0;
-        // we[4] = 1.0;
-        // we[5] = 1.0;
-        // we[6] = 1.0;
-        // we[7] = 1.0;
-        // we[8] = 1.0;
-        // test.setWeightVector(we);
+    // Eigen::VectorXd we(9);
+    // we[0] = 0.0;
+    // we[1] = 0.0;
+    // we[2] = 1.0;
+    // we[3] = 1.0;
+    // we[4] = 1.0;
+    // we[5] = 1.0;
+    // we[6] = 1.0;
+    // test.setWeightVector(we);
 
-        std::vector<rw::math::Q> result;
-        rw::math::Transform3D<> pose(rw::math::Vector3D<>(0,0,0),rw::math::RPY<>(1.57079632679,0,1.57079632679));
-        result = test.solve(pose, _state);
-        std::cout << "Der er: " << result.size() << " resultater." << std::endl;
-        _robot->setQ(result[0],_state);
-        getRobWorkStudio()->setState(_state);
+    std::vector<rw::math::Q> result;
+    rw::math::Transform3D<> pose(rw::math::Vector3D<>(0,0,0),rw::math::RPY<>(1.57079632679,0,1.57079632679));
+    result = test.solve(pose, _state);
+    std::cout << "Der er: " << result.size() << " resultater." << std::endl;
+    _robot->setQ(result[0],_state);
+    getRobWorkStudio()->setState(_state);
+
+}
+
+
+
+void SamplePlugin::invCalcNew() {
+    _wc  = getRobWorkStudio()->getWorkCell();
+    _state = _wc->getDefaultState();
+    _robot  = _wc->findDevice<rw::models::SerialDevice>("Stompa");
+    //get desired 
+      // The variable to solve for with its initial value.
+  double initial_x = 5.0;
+  double x = initial_x;
+
+  // Build the problem.
+//   Problem problem;
+
+  // Set up the only cost function (also known as residual). This uses
+  // auto-differentiation to obtain the derivative (jacobian).
+  CostFunction* cost_function =
+      new AutoDiffCostFunction<CostFunctor, 1, 1>(new CostFunctor);
+  problem.AddResidualBlock(cost_function, nullptr, &x);
+
+  // Run the solver!
+  Solver::Options options;
+  options.linear_solver_type = ceres::DENSE_QR;
+  options.minimizer_progress_to_stdout = true;
+  Solver::Summary summary;
+  Solve(options, &problem, &summary);
+
+  std::cout << summary.BriefReport() << "\n";
+  std::cout << "x : " << initial_x
+            << " -> " << x << "\n";
 
 }
 
@@ -147,7 +186,7 @@ void SamplePlugin::btnPressed() {
         log().info() << "Recording Trajectory and apply final pos." << "\n";
         std::cout << "Recording Trajectory and apply final pos." << std::endl;
         //runPath(true);
-        invCalc();
+        invCalcNew();
         
     }
     else if (obj == _reset){}
@@ -225,7 +264,6 @@ void SamplePlugin::getGantry() {
     }
     getRobWorkStudio()->setWorkCell(wc);
 }
-
 
 
 // ##################################### Robitics ###############################
