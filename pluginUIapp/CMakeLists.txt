@@ -38,6 +38,13 @@ set(RobWorkStudio_DIR ${RWSTUDIO_ROOT}/cmake)
 find_package(RobWorkStudio REQUIRED)
 message("-- RobWorkStudio found: " ${RWSTUDIO_ROOT})
 
+
+find_package(XercesC REQUIRED)
+
+message("I'm sending a message")
+find_package(glog REQUIRED)
+find_package(Ceres REQUIRED)
+
 # Set the output dir for generated libraries and binaries
 if(MSVC)
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${ROOT}/bin" CACHE PATH "Runtime directory" FORCE)
@@ -72,8 +79,10 @@ add_library(SamplePlugin MODULE ${SrcFiles})
 
 #target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES})
 #target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} )
-target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES} ${CERES_LIB})
-target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} ${CERES_INC} )
+#target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES} ${CERES_LIB})
+target_link_libraries(SamplePlugin PUBLIC ${ROBWORKSTUDIO_LIBRARIES} ${ROBWORK_LIBRARIES} XercesC::XercesC glog::glog Ceres::ceres)
+target_include_directories(SamplePlugin PUBLIC ${ROBWORKSTUDIO_INCLUDE_DIRS} ${ROBWORK_INCLUDE_DIRS} ${CERES_INC})
+
 
 
 if(CMAKE_VERSION VERSION_LESS 3.9)
@@ -82,5 +91,7 @@ if(CMAKE_VERSION VERSION_LESS 3.9)
 endif()
 
 message("-- " ${PROJECT_NAME} " done!")
+
+
 
 

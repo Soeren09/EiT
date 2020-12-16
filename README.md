@@ -9,3 +9,8 @@ $ cd /<PathToGit>/Eit/Practical/EiT/pluginUIapp/build
 $ cmake ..
 $ make -j4
 
+
+
+
+Inverse kinematics is dependant on ceres. 
+
