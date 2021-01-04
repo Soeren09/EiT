@@ -8,7 +8,10 @@ Practial project for Expert in Teams
 |   +-- # Contains Scene .xml file and collision setup
 |   |
 |   +-- components
-|       +--#contains object files in .stl format
+|       +-- # Contains object files in .stl format
+|
++-- PrototypeControl
+|   +-- # Robot control
 |
 +-- STOMPA
 |   +-- 3D Print
@@ -20,11 +23,12 @@ Practial project for Expert in Teams
 |   +-- STOMPA 3D files
 |       +-- # Containt the Invertor files for the CAD model
 | 
-| Workcell
-| - 
-| 
-| PluginUIapp
++-- Workcell
+|   +-- # Examplecode for RobworkStudio scene
 |
++-- PluginUIapp
+    +-- # Contain code for simulating the STOMPA in RobworkStudio
+    
 ```
 
 
