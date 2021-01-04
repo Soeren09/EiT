@@ -4,7 +4,7 @@ from random import choice
 import math
 
 
-class motor_io():
+class motor_control():
     def __init__(self):
         self.Motor_scaling = 2 # alternative 1
 
@@ -31,7 +31,6 @@ class motor_io():
 
         self.gripper_open = DigitalOutputDevice(10)
 
-
         # send to UR -> pin 11
 
         [d.off() for d in self._dirs]
@@ -53,12 +52,10 @@ class motor_io():
             else:
                 self._dirs[1].on()
     
-    def move(self, x=None, y=None, sleeptime=1/500):
+    def StepperMove(self, x=None, y=None, sleeptime=1/500):
         s_time=sleeptime/2
-        if s_time < 1/8000:
-            s_time = 1/8000
-        # pulse_time = 1/(speed*2)
-        # print("pulse: ", pulse_time)
+        if s_time < 1/16000:
+            s_time = 1/16000
         move_y=False
         move_x=False
         if abs(x)> 1 or abs(y)> 1:
@@ -130,23 +127,27 @@ class motor_io():
     def print_status(self):
         print(f'Current config: ({self.POS_ARM_0}, {self.POS_ARM_1}). Arm_0 limits: {self.LIMIT_ARM_0}. Arm_1 limits: {self.LIMIT_ARM_1}.')
 
-    def get_pose(self, human_readable=False):
-        if human_readable:
-            return [self.POS_ARM_0*self.degs_per_step, self.POS_ARM_1*self.degs_per_step-self.POS_ARM_0*self.degs_per_step]
+    def get_pose(self, decoupled=False, degrees=True):
+        if degrees:
+            conv = self.degs_per_step
         else:
-            return [self.POS_ARM_0*self.degs_per_step, self.POS_ARM_1*self.degs_per_step]
+            conv = 1
+        if decoupled:
+            return [self.POS_ARM_0*conv, self.POS_ARM_1*conv-self.POS_ARM_0*conv]
+        else:
+            return [self.POS_ARM_0*conv, self.POS_ARM_1*conv]
 
 if __name__ == "__main__":
-    tester = motor_io()
-    tester.move(x=0, y=1)
+    tester = motor_control()
+    tester.StepperMove(x=0, y=1)
     tester.print_status()
-    tester.move(x=0, y=1)
+    tester.StepperMove(x=0, y=1)
     tester.print_status()
-    tester.move(x=0, y=1)
+    tester.StepperMove(x=0, y=1)
     tester.print_status()
-    tester.move(x=-1, y=0)
+    tester.StepperMove(x=-1, y=0)
     tester.print_status()
-    tester.move(x=-1, y=0)
+    tester.StepperMove(x=-1, y=0)
     tester.print_status()
-    tester.move(x=-1, y=0)
+    tester.StepperMove(x=-1, y=0)
     tester.print_status()

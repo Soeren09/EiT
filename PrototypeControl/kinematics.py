@@ -1,4 +1,5 @@
 import math
+import kinematics
 
 class kinematics:
     def __init__(self, L1, L2, offset):
@@ -15,14 +16,13 @@ class kinematics:
 
     def invers(self, x,y):
         cos_q2 = (x*x + y*y - self._L1*self._L1  - self._L2*self._L2 ) /(2*self._L1*self._L2)
-        # print(cos_q2)
         q2 = math.acos(cos_q2)
         q1 = math.atan2(y,x)-math.atan2((self._L2*math.sin(q2)),(self._L1+self._L2*cos_q2) )
         q1_out = math.degrees(q1-self._offset)
         q2_out = math.degrees(q2)
         return q1_out, q2_out
 
-def MoveL(start, end, steps):
+def LinDecomp(start, end, steps):
     kin = kinematics(L1=0.055,L2=0.105,offset=-17)
     output=[]
     for i in range(steps):
@@ -33,7 +33,6 @@ def MoveL(start, end, steps):
         if q1 < 0 or q1 > 215 or q2 < 0 or q2 > 90:
             print("Error - inv kin solution is out of bounds")
         output.append([q1,q2])
-    # print(output)
     return output
 
 
@@ -45,4 +44,4 @@ if __name__ == "__main__":
     q1,q2 = kin.invers(x,y)
     print(q1,q2)
     # Metoden nedenfor laver en list af Q-values, som skal afspilles med jævn fart, så burde C-space linear movement opnåes.
-    out = MoveL([0.06, 0.143],[-0.06, 0.143],100)
+    out = LinDecomp([0.06, 0.143],[-0.06, 0.143],100)
